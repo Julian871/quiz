@@ -23,6 +23,7 @@ import { Post } from './entities/post-entity';
 import { PostLike } from './entities/post-like-entity';
 import { Comment } from './entities/comment-entity';
 import { CommentLike } from './entities/comment-like-entity';
+import { QuizModule } from './quiz-game/quiz.module';
 dotenv.config();
 
 @Module({
@@ -68,6 +69,7 @@ dotenv.config();
     CommentsModule,
     DevicesModule,
     TestingModule,
+    QuizModule,
   ],
   controllers: [AppController],
   providers: [AppService],
