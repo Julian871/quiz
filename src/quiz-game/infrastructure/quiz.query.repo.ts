@@ -11,7 +11,7 @@ export class QuizQueryRepo {
     private readonly questionRepo: Repository<Questions>,
   ) {}
 
-  async getAllQuestions(query: QuestionsQuery) {
+  async getQuestions(query: QuestionsQuery) {
     const queryBuilder = this.questionRepo
       .createQueryBuilder('q')
       .where('q.body ILIKE :bodySearchTerm', {

@@ -8,13 +8,13 @@ export class GetQuestionCommand {
 }
 
 @CommandHandler(GetQuestionCommand)
-export class GetQuestionsUseCases
+export class GetQuestionsUseCase
   implements ICommandHandler<GetQuestionCommand>
 {
   constructor(private readonly quizQueryRepo: QuizQueryRepo) {}
 
   async execute(command: GetQuestionCommand) {
-    const [questions, count] = await this.quizQueryRepo.getAllQuestions(
+    const [questions, count] = await this.quizQueryRepo.getQuestions(
       command.query,
     );
 

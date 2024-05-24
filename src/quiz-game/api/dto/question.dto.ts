@@ -8,7 +8,7 @@ import {
 } from 'class-validator';
 
 @Injectable()
-export class CreateQuestionDto {
+export class QuestionDto {
   @Length(10, 500)
   body: string;
 

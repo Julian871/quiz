@@ -7,10 +7,18 @@ import { Questions } from '../../entities/quiz/questions-entity';
 export class QuizRepo {
   constructor(
     @InjectRepository(Questions)
-    private readonly usersRepository: Repository<Questions>,
+    private readonly questionRepo: Repository<Questions>,
   ) {}
 
   saveQuestion(question: Questions): Promise<Questions> {
-    return this.usersRepository.save(question);
+    return this.questionRepo.save(question);
+  }
+
+  getQuestionById(id: number): Promise<Questions | null> {
+    return this.questionRepo.findOneBy({ id });
+  }
+
+  deleteQuestionById(id: number) {
+    return this.questionRepo.delete({ id });
   }
 }
