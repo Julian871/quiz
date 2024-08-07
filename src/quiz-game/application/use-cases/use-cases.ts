@@ -5,6 +5,7 @@ import { UpdatePublishedQuestionUseCase } from './questions/update.published.que
 import { DeleteQuestionUseCase } from './questions/delete.question.use-cases';
 import { ConnectGameUseCase } from './connectToGame.use-cases';
 import { GetCurrentGameUseCase } from './getCurrentGame.use-cases';
+import { GetGameByIdUseCase } from './getGameById.use-cases';
 
 export const useCases = [
   CreateQuestionUseCase,
@@ -14,4 +15,5 @@ export const useCases = [
   DeleteQuestionUseCase,
   ConnectGameUseCase,
   GetCurrentGameUseCase,
+  GetGameByIdUseCase,
 ];

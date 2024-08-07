@@ -1,7 +1,9 @@
 import {
+  BadRequestException,
   Controller,
   Get,
   HttpCode,
+  Param,
   Post,
   Req,
   UseGuards,
@@ -11,6 +13,7 @@ import { BearerAuthGuard } from '../../security/auth-guard';
 import { ConnectGameCommand } from '../application/use-cases/connectToGame.use-cases';
 import { Request as Re } from 'express';
 import { GetCurrentGameQuery } from '../application/use-cases/getCurrentGame.use-cases';
+import { GetGameByIdQuery } from '../application/use-cases/getGameById.use-cases';
 
 @UseGuards(BearerAuthGuard)
 @Controller('pair-game-quiz')
@@ -32,5 +35,17 @@ export class QuizController {
   async getCurrentGame(@Req() req: Re) {
     const token = req.headers.authorization!;
     return this.queryBus.execute(new GetCurrentGameQuery(token));
+  }
+
+  @Get('/pairs/:id')
+  @HttpCode(200)
+  async getGameById(@Param('id') id: string, @Req() req: Re) {
+    const gameId = parseInt(id, 10);
+    if (!Number.isInteger(gameId) || gameId <= 0) {
+      throw new BadRequestException('Некорректный gameId');
+    }
+
+    const token = req.headers.authorization!;
+    return this.queryBus.execute(new GetGameByIdQuery(token, gameId));
   }
 }
