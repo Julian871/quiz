@@ -1,5 +1,5 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { QuizRepo } from '../../infrastructure/quiz.repo';
+import { QuizRepo } from '../../../infrastructure/quiz.repo';
 import { NotFoundException } from '@nestjs/common';
 
 export class UpdatePublishedQuestionCommand {

@@ -1,6 +1,6 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { QuizRepo } from '../../infrastructure/quiz.repo';
-import { QuestionDto } from '../../api/dto/question.dto';
+import { QuizRepo } from '../../../infrastructure/quiz.repo';
+import { QuestionDto } from '../../../api/dto/question.dto';
 import { NotFoundException } from '@nestjs/common';
 
 export class UpdateQuestionCommand {

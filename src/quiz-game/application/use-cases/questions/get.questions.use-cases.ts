@@ -1,7 +1,7 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { QuizQueryRepo } from '../../infrastructure/quiz.query.repo';
-import { QuestionsQuery } from '../../api/query.questions';
-import { PageInformation } from '../../../features/page-information';
+import { QuizQueryRepo } from '../../../infrastructure/quiz.query.repo';
+import { QuestionsQuery } from '../../../api/query.questions';
+import { PageInformation } from '../../../../features/page-information';
 
 export class GetQuestionCommand {
   constructor(public query: QuestionsQuery) {}
