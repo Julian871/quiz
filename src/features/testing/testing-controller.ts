@@ -10,7 +10,8 @@ export class TestingController {
   async deleteAll() {
     await this.dataSource.query(`
       TRUNCATE TABLE public."Users", public."Session", public."Blogs", 
-      public."Posts", public."Comments", public."PostLikes", public."CommentLikes";
+      public."Posts", public."Comments", public."PostLikes", public."CommentLikes",
+      public."Answers", public."Game", public."Score", public."Questions";
     `);
   }
 }

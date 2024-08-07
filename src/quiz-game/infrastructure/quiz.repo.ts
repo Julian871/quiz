@@ -78,4 +78,13 @@ export class QuizRepo {
       .limit(5)
       .getMany();
   }
+
+  getActiveGameByUserId(userId: number) {
+    return this.gameRepo
+      .createQueryBuilder('g')
+      .leftJoinAndSelect('g.scores', 'scores')
+      .where('scores.playerId = :userId', { userId })
+      .andWhere('g.status = :status', { status: 'Active' })
+      .getOne();
+  }
 }
